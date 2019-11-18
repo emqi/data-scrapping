@@ -1,7 +1,7 @@
 const Scrapper = require("./Scrapper.js");
 
 class ProductFinder {
-  static async *createIterator(searchPhrase) {
+  static async *createIterator(searchPhrase, pagesToSearch = 1) {
     let currentPage = 0;
 
     while (true) {
@@ -20,6 +20,10 @@ class ProductFinder {
         .filter(id => !Number.isNaN(id));
 
       yield* productIds;
+
+      if(currentPage == pagesToSearch){
+        return
+      }
 
       if ($(".category-list .pagination .page-arrow.arrow-next").length <= 0) {
         return;

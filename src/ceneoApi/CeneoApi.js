@@ -3,10 +3,10 @@ const ProductFinder = require("./scrapper/ProductFinder");
 const Product = require("./scrapper/Product");
 
 class CeneoAPI {
-  async *findProducts(productName) {
+  async *findProducts(productName, pagesToSearch) {
     let index = 0;
 
-    for await (const productId of ProductFinder.createIterator(productName)) {
+    for await (const productId of ProductFinder.createIterator(productName, pagesToSearch)) {
       yield {
         index: index++,
         productId,

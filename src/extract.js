@@ -4,8 +4,8 @@ class ExtractStep {
   api = new CeneoAPI();
   options = {};
 
-  async process(input) {
-    const productIds = await this.getProductIds(input);
+  async process(input, pagesToDisplay) {
+    const productIds = await this.getProductIds(input, pagesToDisplay);
 
     const products = [];
 
@@ -36,11 +36,11 @@ class ExtractStep {
     return products;
   }
 
-  async getProductIds(input) {
+  async getProductIds(input, pagesToDisplay) {
     let productIds = [];
 
     if (typeof input === "string") {
-      for await (const item of this.api.findProducts(input)) {
+      for await (const item of this.api.findProducts(input, pagesToDisplay)) {
         productIds.push(item.productId);
 
         //if (this.options.onProductIdDiscovery) {
@@ -58,7 +58,7 @@ class ExtractStep {
 async function etl() {
   extract = new ExtractStep();
 
-  const data = await extract.process("telewizor QLED");
+  const data = await extract.process("telewizor", 1);
   console.log(data);
 
   //transform
