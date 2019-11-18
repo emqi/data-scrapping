@@ -55,14 +55,4 @@ class ExtractStep {
   }
 }
 
-async function etl() {
-  extract = new ExtractStep();
-
-  const data = await extract.process("telewizor", 1);
-  console.log(data);
-
-  //transform
-  //load
-}
-
-etl();
+module.exports = ExtractStep;
