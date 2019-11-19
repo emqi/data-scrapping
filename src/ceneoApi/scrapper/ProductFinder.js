@@ -10,7 +10,7 @@ class ProductFinder {
           searchPhrase
         )};0020-30-0-0-${currentPage++}.htm`
       );
-
+ 
       const list = $(
         "div.category-list-body.js_category-list-body.js_search-results .cat-prod-row"
       );

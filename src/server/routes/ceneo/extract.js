@@ -1,10 +1,11 @@
 const extract = require("../../routes/utils/extract");
 
 module.exports = async function(req, res) {
-  //TODO
-  // sprawdzic parametry czy sa i czy sa ok.
   const phrase = req.body.phrase;
   const pagesToSearch = req.body.pagesToSearch;
+
+  if (!(Number.isInteger(pagesToSearch) && pagesToSearch > 0))
+    return res.json("wrong pages format");
 
   const data = await extract(phrase, pagesToSearch);
 
