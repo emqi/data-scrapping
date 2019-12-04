@@ -1,0 +1,9 @@
+Request example:
+GET
+http://localhost:3000/extractPhrase
+
+body:
+{
+	"phrase": "telewizor",
+	"pagesToSearch": 1
+}
