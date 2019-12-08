@@ -1,4 +1,5 @@
 const extract = require("../../routes/utils/extract");
+const test = require("../../../tmp/test");
 
 module.exports = async function(req, res) {
   const phrase = req.body.phrase;
