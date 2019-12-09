@@ -1,4 +1,4 @@
-export function getTestProductWithOpinions() {
+module.exports = function getTestProductWithOpinions() {
     return {
         "id": 69232971,
         "name": "Telewizor Philips 55OLED803",
@@ -168,4 +168,4 @@ export function getTestProductWithOpinions() {
             }
         ]
     };
-}
+};
