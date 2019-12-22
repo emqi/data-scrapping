@@ -3,27 +3,25 @@ const ProductReviews = require("./ProductReviews.js");
 class Product {
   constructor(id, $) {
     this.id = id;
-    this.name = this.parseName($);
-    this.description = this.parseDescription($);
-    this.rating = this.parseRating($);
-    this.price = this.parsePrice($);
+    this.name = this.name($);
+    this.description = this.description($);
+    this.rating = this.rating($);
+    this.price = this.price($);
   }
 
   reviews() {
     return ProductReviews.createIterator(this.id);
   }
 
-  parseName($) {
+  name($) {
     return $(`.product-content .product-name`)
-      .text()
-      .trim();
+      .text();
   }
 
-  parseDescription($) {
+  description($) {
     try {
       const description = $(`.product-content .ProductSublineTags`)
-        .text()
-        .trim();
+        .text();
 
       return description || null;
     } catch (ex) {
@@ -31,13 +29,11 @@ class Product {
     }
   }
 
-  parseRating($) {
+  rating($) {
     try {
       const rating = parseFloat(
         $(".product-content .prod-review .product-score")
           .text()
-          .trim()
-          .replace(",", ".")
       );
 
       return Number.isNaN(rating) ? null : rating;
@@ -46,13 +42,11 @@ class Product {
     }
   }
 
-  parsePrice($) {
+  price($) {
     try {
       const price = parseFloat(
         $(".product-content .product-price .price-format .price")
           .text()
-          .trim()
-          .replace(",", ".")
       );
 
       return Number.isNaN(price) ? null : price;

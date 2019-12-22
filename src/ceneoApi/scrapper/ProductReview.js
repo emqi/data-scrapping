@@ -1,8 +1,8 @@
 class ProductReview {
   constructor(id, $) {
     this.reviewId = id;
-    this.reviewer = this.parseReviewer($);
-    this.rating = this.parseRating($);
+    this.reviewer = this.reviewer($);
+    this.rating = this.rating($);
     this.usefulness = this.parseUsefulness($);
     this.date = this.parseDate($);
     this.reviewedAfter = this.parseReviewedAfter($);
@@ -10,31 +10,21 @@ class ProductReview {
     this.didUserBuyTheProduct = this.parseDidUserBuyTheProduct($);
   }
 
-  parseReviewer($) {
+  reviewer($) {
     let avatarUrl = $.find("header > div.avatar-img").attr("data-bg");
-
-    if (avatarUrl.startsWith("/")) {
-      avatarUrl = "https://www.ceneo.pl" + avatarUrl;
-    }
 
     return {
       avatar: avatarUrl,
       username: $.find("header > div.reviewer-cell > div")
         .text()
-        .trim()
     };
   }
 
-  parseRating($) {
+  rating($) {
     try {
-      const rating = parseFloat(
-        $.find("span.review-score-count")
-          .text()
-          .replace(",", ".")
-          .replace("/5", "")
-      );
+      const rating = $.find("span.review-score-count").text();
 
-      return Number.isNaN(rating) ? null : rating;
+      return !rating ? null : rating;
     } catch (ex) {}
     return null;
   }
