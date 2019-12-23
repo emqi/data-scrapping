@@ -1,171 +1,230 @@
 module.exports = function getTestProductWithOpinions() {
-    return {
-        "id": 69232971,
-        "name": "Telewizor Philips 55OLED803",
-        "description": "Telewizor Philips Przekątna: 55 cali, Rozdzielczość: 4K UHD, Matryca: OLED, Odświeżanie: 120 Hz, Wi-Fi, Tuner: DVB-C, DVB-S, DVB-T, DVB-T2, DVB-S2, Rodzaj ekranu: Prosty, Dostępne łącza bezprzewodowe: Wi-Fi",
-        "rating": 4.4,
-        "price": 5990,
-        "reviews": [
-            {
-                "reviewId": 8682471,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/9.svg",
-                    "username": "Quatro"
+    return [
+        {
+            "id": 86607397,
+            "name": "Nowość Telewizor Philips 65OLED934",
+            "description": "Telewizor Philips Przekątna: 65 cali, Rozdzielczość: 8K UHD, Matryca: OLED, Odświeżanie: 120 Hz, Wi-Fi, Tuner: DVB-C, DVB-S, DVB-T, DVB-S2, DVB-C2, Rodzaj ekranu: Prosty, Dostępne łącza bezprzewodowe: Bluetooth\n\t\t",
+            "rating": 4,
+            "price": 12999,
+            "reviews": [
+                {
+                    "reviewId": 11387000,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/5.svg",
+                        "username": "\nZadowolony        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 1,
+                        "downvotes": 1
+                    },
+                    "date": "2019-12-07T14:31:44.000Z",
+                    "reviewedAfter": null,
+                    "text": "Zazwyczaj nie piszę opinii, a jak już to tylko wystawiam ocenę. Tym razem jestem tak zachwycony telewizorem, że pokuszę się o napisanie kilku zdań. \n\n\n\nObraz:\n\nCzasami mam wrażenie, że nie oglądam odtwarzanego obrazu na ekranie, tylko patrzę przez szybkę. Kolory są bardzo żywe, a w grach i filmach można dostrzec najmniejsze detale. Dla porównania włączyłem ten sam film (Avengers) na tym i starym telewizorze. Na starym wielu szczegółów nie było widocznych.\n\nDźwięk:\n\nSoundbar Bowers & Wilkins to już nie są żarty. Każdy kto chociaż trochę interesuje się audio kojarzy brytyjską markę, która uznawana jest za jednego z liderów dźwięku. Szczerze oglądając filmy z dużą ilością efektów dźwiękowych można poczuć się jak w kinie.\n\nAmbilght: \n\nŚwietna funkcja, która rzuca cień na ścianę i tworzy efekt większego ekrany. Jest to zarówno efektywne dla oka, ale przydatne podczas oglądania w nocy (oczy nie męczą się tak szybko).\n\nObsługa:\n\nSystem stabilny, działa szybko, nie zawiesza się. Dostęp do wielu aplikacji i łatwość obsługi.",
+                    "didUserBuyTheProduct": false
                 },
-                "rating": 5,
-                "usefulness": {
-                    "upvotes": 9,
-                    "downvotes": 1
+                {
+                    "reviewId": 11222049,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/6.svg",
+                        "username": "\nglobus        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 3,
+                        "downvotes": 5
+                    },
+                    "date": "2019-10-31T14:39:53.000Z",
+                    "reviewedAfter": 2237875000,
+                    "text": "Philips z tym modelem bardzo fajnie wpasował się w moje oczekiwania jeśli chodzi o wysokiej jakości telewizor. Super, że ma pełną obsługę Dolby Atmos, włącznie z głośnikiem skierowanym do góry. Super, że na pokładzie działa Android, system uniwersalny i jego jakość można poznać po ilości dostępnych aplikacji. Obraz - nic dodać, nic ująć. Po prostu jakość OLED wymiata nawet to prezentowały do tej pory telewizory plazmowe.",
+                    "didUserBuyTheProduct": false
                 },
-                "date": "2018-12-05T22:09:32.000Z",
-                "reviewedAfter": 10967792000,
-                "text": "Obraz na tym tv jest po prostu świetny trzeba to zobaczyć na własne oczy.",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 8583258,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/6.svg",
-                    "username": "wither"
+                {
+                    "reviewId": 11396062,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/7.svg",
+                        "username": "\nJanusz        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 1,
+                        "downvotes": 1
+                    },
+                    "date": "2019-12-03T15:37:32.000Z",
+                    "reviewedAfter": 524285000,
+                    "text": "Jeszcze dokladnie niezapoznalem sie z produkte. Wyglada na to ze jest bez zarzutu.",
+                    "didUserBuyTheProduct": true
                 },
-                "rating": 4.5,
-                "usefulness": {
-                    "upvotes": 12,
-                    "downvotes": 2
+                {
+                    "reviewId": 11223214,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/5.svg",
+                        "username": "\nMZ        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 2,
+                        "downvotes": 7
+                    },
+                    "date": "2019-10-31T22:21:01.000Z",
+                    "reviewedAfter": null,
+                    "text": "Nie ma słów żeby to opisać. To trzeba przeżyć :))",
+                    "didUserBuyTheProduct": false
+                }
+            ]
+        },
+        {
+            "id": 82699387,
+            "name": " Telewizor PHILIPS 55PUS7334",
+            "description": "Telewizor Philips Przekątna: 55 cali, Rozdzielczość: 4K UHD, Matryca: LED, Odświeżanie: 60 Hz, Wi-Fi, Tuner: DVB-C, DVB-S, DVB-T, DVB-T2, DVB-S2, Rodzaj ekranu: Prosty, Dostępne łącza bezprzewodowe: Wi-Fi\n\t\t",
+            "rating": 4,
+            "price": 2499,
+            "reviews": [
+                {
+                    "reviewId": 10753093,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/1.svg",
+                        "username": "\nAdam        "
+                    },
+                    "rating": "4,5/5",
+                    "usefulness": {
+                        "upvotes": 16,
+                        "downvotes": 16
+                    },
+                    "date": "2019-07-07T16:23:52.000Z",
+                    "reviewedAfter": 155770000,
+                    "text": "Telewizor jednym słowem super,dużo lepszy od konkurencji np LG: 8100/8200 (wiadome problemy z podświetleniem),Sony: XF85 czy Samsunga: RU 8002. Mimo 60Hz matrycy obraz jest płynniejszy od tanich matryc 100Hz,kolory dobrze nasycone i nie sprane\n\n+Płynny system(Android)\n\n+ obrotowa podstawa\n\n+srebrny kolor\n\n+wspiera wszystkie standardy HDR, czego nie zapewnia część konkurencji ",
+                    "didUserBuyTheProduct": false
                 },
-                "date": "2018-11-18T19:12:45.000Z",
-                "reviewedAfter": null,
-                "text": "Telewizor świetnie sprawuje się w każdych warunkach i w każdych zastosowaniach. Jakość obrazu jest świetna. Ktoś napisał, że system to padaka - sorry, ale ja nie widzę telewizorów za 5 lat z systemami smartTV innymi niż te typu Android lub Apple. Za duża konkurencja. A twój zarzut o wolne działanie jest kompletnie niewiarygodny: po pierwsze sam jestem użytkownikiem i widzę jak system pracuje naprawdę, po drugie nie ma nigdzie indziej takich zarzutów jak na ceneo, a po trzecie filmiki na yt też przeczą temu co piszesz. Na przyszłość pisz trochę obiektywniej.",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 10724824,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/7.svg",
-                    "username": "Michał"
+                {
+                    "reviewId": 10839054,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/1.svg",
+                        "username": "\ngary        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 11,
+                        "downvotes": 6
+                    },
+                    "date": "2019-07-26T12:46:50.000Z",
+                    "reviewedAfter": null,
+                    "text": "Bardzo fajny telewizorek, a może lepiej telewizor. Jakość obrazu prezentuje się naprawdę pięknie, nie jest źle też tak jak pisze się w internecie z systemem Android. Bardzo dobrze sprawuje się również pilot z elegancką klawiaturą na odwrocie. Szybko się okazało, że korzystanie z asystenta Google bardzo pomaga w korzystaniu z telewizora. No ogólnie cud - miód.",
+                    "didUserBuyTheProduct": false
                 },
-                "rating": 5,
-                "usefulness": {
-                    "upvotes": 2,
-                    "downvotes": 0
+                {
+                    "reviewId": 11249281,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/1.svg",
+                        "username": "\nAdam        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 2,
+                        "downvotes": 2
+                    },
+                    "date": "2019-11-07T17:15:06.000Z",
+                    "reviewedAfter": null,
+                    "text": "Wszyscy chwalą i wymieniają zalety. Ja też. Jednak nie znalazłem jednej, bardzo ważnej uwagi. Ze względu na małą przerwę między ekranem a blatem na którym stoi telewizor, NIE WIDAĆ KŁĘBOWISKA KABLI, które za nim leżą.",
+                    "didUserBuyTheProduct": false
                 },
-                "date": "2019-06-10T18:34:44.000Z",
-                "reviewedAfter": 1782162000,
-                "text": "niesamowite wrażenia z oglądania filmów HDR w odległości około 2,5 m od tv. Czuję się lepiej niż w kinie",
-                "didUserBuyTheProduct": true
-            },
-            {
-                "reviewId": 8828078,
-                "reviewer": {
-                    "avatar": "https://graph.facebook.com/1368393953208805/picture?width=320&height=320",
-                    "username": "mr_roba"
+                {
+                    "reviewId": 10859240,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/2.svg",
+                        "username": "\nLeonZawodowiec        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 3,
+                        "downvotes": 0
+                    },
+                    "date": "2019-07-31T14:32:20.000Z",
+                    "reviewedAfter": null,
+                    "text": "Właśnie zainstalowałem w domu. Jest super. Obraz ładny, wykonanie w sam raz do salonu. Nie ma się do czego przyczepić. Pierwsze wrażenie MEGA",
+                    "didUserBuyTheProduct": false
                 },
-                "rating": 5,
-                "usefulness": {
-                    "upvotes": 6,
-                    "downvotes": 2
+                {
+                    "reviewId": 10982798,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/1.svg",
+                        "username": "\nWiarus        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 3,
+                        "downvotes": 0
+                    },
+                    "date": "2019-08-29T22:28:06.000Z",
+                    "reviewedAfter": null,
+                    "text": "System Android działa bardzo płynie. TV się nie zawiesza. Do tego przystępna cena i klimatyczna funkcja Ambilight.",
+                    "didUserBuyTheProduct": false
                 },
-                "date": "2018-12-29T10:48:11.000Z",
-                "reviewedAfter": 764920000,
-                "text": "Telewizor zakupiłem z profesjonalną kalibracją. Obraz powala na kolana.  Jakość wykonania, dźwięk, obsługa na najwyższym poziomie. Idealnie współpracuje z dekoderem - używam do obsługi pilota od TV. Proszę nie słuchajcie tych bredni o wolno działającym Androidzie. Ludzie powielają zasłyszane na forach opinie. Owszem, gdy oglądamy materiał 4k to wolniej reaguje na pilota, ale to jedyna niedogodność. Zabezpieczenie przed wypaleniem działa bardzo dobrze. Gdy nacisniesz pauzę to po minucie włącza się wygaszacz i jest ok. Po miesiącu użytkowania z każdym dnie uwielbiam go coraz bardziej. ",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 10659869,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/1.svg",
-                    "username": "Grzegorz"
+                {
+                    "reviewId": 10761566,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/7.svg",
+                        "username": "\nBartek        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 7,
+                        "downvotes": 3
+                    },
+                    "date": "2019-07-09T13:16:02.000Z",
+                    "reviewedAfter": null,
+                    "text": "Cieszę się, że ktoś jeszcze produkuje małe telewizory, które oferują świetną jakość obrazu. Jeżeli ktoś nie chce zagracać sobie małego pokoju dużym telewizorem, to według mnie nie ma konkurencji. Telewizor oferuje naprawdę wiele - świetna jakość obrazu, płynny system no i dodatkowo ambilight.",
+                    "didUserBuyTheProduct": false
                 },
-                "rating": 5,
-                "usefulness": {
-                    "upvotes": 1,
-                    "downvotes": 0
+                {
+                    "reviewId": 10975633,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/7.svg",
+                        "username": "\nlry        "
+                    },
+                    "rating": "4,5/5",
+                    "usefulness": {
+                        "upvotes": 6,
+                        "downvotes": 3
+                    },
+                    "date": "2019-08-28T13:27:48.000Z",
+                    "reviewedAfter": 6475681000,
+                    "text": "Obraz w tym telewizorze zdecydowanie odbiegał na jego korzyść w porównaniu do jakości prezentowanej przez konkurencję w podobnych cenach. Zdecydowanie lepsze jest też smartTV od Androida - apek pod dostatkiem. I takie przyjemne dodatki jak ambilight na pewno uprzyjemniają oglądanie. ",
+                    "didUserBuyTheProduct": false
                 },
-                "date": "2019-06-08T17:40:07.000Z",
-                "reviewedAfter": 490824000,
-                "text": "Super , spełnił moje oczekiwania . Zakup uważam za bardzo udany ",
-                "didUserBuyTheProduct": true
-            },
-            {
-                "reviewId": 8877798,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/5.svg",
-                    "username": "kwolana"
+                {
+                    "reviewId": 10987713,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/1.svg",
+                        "username": "\nTomek321        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 5,
+                        "downvotes": 2
+                    },
+                    "date": "2019-08-31T05:06:18.000Z",
+                    "reviewedAfter": null,
+                    "text": "Cena rozsądna jak na tego rodzaju telewizor. Kupiłem dość mocno użytkuję przy różnego typu filmach oraz Netflixie i jestem zadowolony. Ambilight zdecydowanie ułatwia oglądanie, zwłaszcza wieczorem przy wyłączonym świetle",
+                    "didUserBuyTheProduct": false
                 },
-                "rating": 3.5,
-                "usefulness": {
-                    "upvotes": 2,
-                    "downvotes": 2
-                },
-                "date": "2019-01-07T10:03:26.000Z",
-                "reviewedAfter": 174628000,
-                "text": "Obraz dosłownie powala (po przesiadce z lcd) nawet po wielu godzinach opatrzenia się z tym obrazem cały czas robi wielkie wrażenie. Eleganckie wykonanie telewizora i wygląd i jakość, ambilight - to wszystko zdecydowany plus. Wyposażenie tj 2 piloty, 4 hdmi, wejście optyczne, rj, usb - wszystko czego potrzeba powinno wystarczyć. Głośniki niestety fatalne (po przesiadce z tv od sony) być może powieszenie na ścianie poprawiłoby trochę odsłuch. Dźwięk jest wyraźny ale tępy i nieprzyjemny. Na szczęście mam swoją grajbelkę - w przeciwnym wypadku chyba bym zrezygnował z tego tv. Ogólnie do oglądania fantastyczny obraz i stosunek jakość/cena w tej chwili bezkonkurencyjny.",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 8497649,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/2.svg",
-                    "username": "Paweł"
-                },
-                "rating": 5,
-                "usefulness": {
-                    "upvotes": 10,
-                    "downvotes": 0
-                },
-                "date": "2018-10-29T18:09:58.000Z",
-                "reviewedAfter": null,
-                "text": "Zakupiony parę dni temu, jak na razie nie mam zastrzeżeń , jakość obrazu powala na kolana szczególnie netflix, ale przy zwykłym sygnale sd z kablówki również jest spoko, widać że ten drugi procesor działa ,z androida mało korzystam, wieczorami ambilight robi atmosferę nie potrzebuje odpalić innego światła, na koniec pochwalę design, jest minimalistyczny, elegancki.Fajny drugi pilot z touchpadem, polecam wszystkim nie zdecydowanym.",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 10686287,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/7.svg",
-                    "username": "Anghor"
-                },
-                "rating": 3,
-                "usefulness": {
-                    "upvotes": 3,
-                    "downvotes": 5
-                },
-                "date": "2019-06-21T10:46:28.000Z",
-                "reviewedAfter": 3277383000,
-                "text": "Nie wszystko złoto\" co... ma idealną czerń.\n\nTo mój pierwszy tydzień z tym TV i dawno nie miałem do czynienia z produktem tak dobrym z jednej strony i tak fatalnym z drugiej.\n\nJakość obrazu jest cudowna. Plastyka, kontrast, efekt HDR, Netflix 4K... wszystko to bajka. I tu kończą się pozytywy. \n\nNegatywy?\n\n- TV otrzymałem z uszkodzonym (nie działającym) pilotem - różdzką. TV za grubą kasę z nagrodami a taka wtopa na dzień dobry.\n\n- Brak obsługi nowszych formatów HDR\n\n- Procesor P5(gen.2) jest potwornym żartem. Może i skalowanie obrazu odwala OK, ale snapdragony w budżetowych Xioami mają więcej mocy.\n\n- Android: prawdopodobnie przez brak mocy opisany powyżej całość działa jak mucha w smole.\n\n- YT bez HDR i dźwięku przestrzennego\n\n- Blokada dźwięku przestrzennego dla innych aplikacji (np. Kodi)\n\n\n\nOgólnie TV dla \"niewymagających\". \n\nWyjąc z pudełka, odpalić TVN, PLayer i Netflix: Tak.\n\nChcesz mieć dostęp do nowoczesnych treści i formatów Video/Dźwięku: NIE\n\n\n\nNiestety kupiłem bezpośrednio w sklepie więc nawet oddać nie ma jak bo \"przecież działa\". Skończy się pewnie na korzystaniu z przystawki Android TV, aby nie korzystać z wbudowanego Adroid TV. Paranoja wg. Philipsa.",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 8518088,
-                "reviewer": {
-                    "avatar": "https://www.ceneo.pl/Content/img/account/avatar/1.svg",
-                    "username": "Amadeusz85"
-                },
-                "rating": 5,
-                "usefulness": {
-                    "upvotes": 7,
-                    "downvotes": 2
-                },
-                "date": "2018-11-05T12:29:30.000Z",
-                "reviewedAfter": null,
-                "text": "Czytałem bardzo dużo opinii na temat tego TV , Przetestowałem na sklepie i  Bardzo dobrze radzi sobie z ruchem, oraz naturalnie odwzorowuje kolory, HDR na tym Tv petarda. Czerń wiadomo powala w końcu to Oled. Miałem prędzej TV z androidem i nie rozumiem tego Hejtu bo u mnie działa wszystko ok i na tym również śmiga czekam na aktualizacje do Oreo bo jest ciekaw bardzo Google asystent. Telewizor Warty uwagi polecam samemu sprawdzić jak to wygląda.",
-                "didUserBuyTheProduct": false
-            },
-            {
-                "reviewId": 10572116,
-                "reviewer": {
-                    "avatar": "https://graph.facebook.com/1431681383633706/picture?width=320&height=320",
-                    "username": "EDYTA"
-                },
-                "rating": 2,
-                "usefulness": {
-                    "upvotes": 1,
-                    "downvotes": 13
-                },
-                "date": "2019-05-05T18:22:52.000Z",
-                "reviewedAfter": 1677687000,
-                "text": "Tv przyjechał rozregulowany, okropne kolory:( sama musiałam go nastrajać, dalej efekt nie jest powalający... chyba muszę wezwać kogoś do wyregulowania tv.",
-                "didUserBuyTheProduct": true
-            }
-        ]
-    };
+                {
+                    "reviewId": 11430312,
+                    "reviewer": {
+                        "avatar": "/Content/img/account/avatar/4.svg",
+                        "username": "\nBobzy666999        "
+                    },
+                    "rating": "5/5",
+                    "usefulness": {
+                        "upvotes": 0,
+                        "downvotes": 0
+                    },
+                    "date": "2019-12-14T15:02:30.000Z",
+                    "reviewedAfter": 598956000,
+                    "text": "Jest bardzo przyzwoity, mam go jakiś czas i widzę że poprawili Android TV działa świetnie.\n\nEstetycznie bardzo ładna ramka z metalu ( chyba ALU?).\n\nDobry dźwięk.\n\nPolecam",
+                    "didUserBuyTheProduct": false
+                }
+            ]
+        }
+    ];
 };

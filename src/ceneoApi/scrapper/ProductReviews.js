@@ -32,7 +32,7 @@ class ProductReviews {
 
       // no more pages
       if (
-        $(".page-tab-content.reviews .pagination .page-arrow.arrow-next")
+        $(".pagination .page-arrow.arrow-next")
           .length <= 0
       ) {
         break;

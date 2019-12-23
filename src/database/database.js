@@ -19,27 +19,29 @@ function setupDatabaseConnection() {
     const connection = {
         host: 'localhost',
         port: 5432,
-        database: 'todo',
+        database: 'ceneo',
         user: 'postgres',
         password: 'postgres'
     };
 
     const db = postgres(connection);
 
-    db.none('DROP TABLE IF EXISTS products CASCADE').then(r => console.log(r)); // TODO: remove this later to create table if not exists
+    db.none('DELETE FROM reviews').then(r => console.log(r));
+    db.none('DELETE FROM products').then(r => console.log(r));
+    db.none('DELETE FROM products_temp').then(r => console.log(r));
 
-    db.none('CREATE TABLE products (' +
+/*    db.none('CREATE TABLE IF NOT EXISTS products (' +
         '    id bigint  NOT NULL,' +
         '    name text  NULL,' +
         '    description text  NULL,' +
         '    rating double precision  NULL,' +
         '    price double precision  NULL,' +
         '    PRIMARY KEY (id));'
-    ).then(r => console.log(r));
+    ).then(r => console.log(r));*/
 
 
-    db.none('DROP TABLE IF EXISTS reviews').then(r => console.log(r)); // TODO: remove this later to create table if not exists
-    db.none('CREATE TABLE reviews (' +
+
+/*    db.none('CREATE TABLE reviews (' +
         '    id bigint  NOT NULL,' +
         '    reviewerUsername text  NULL,' +
         '    rating double precision  NULL,' +
@@ -51,11 +53,11 @@ function setupDatabaseConnection() {
         '    reviewerBoughtProduct boolean  NULL,' +
         '    productId bigint  NOT NULL,' +
         // 'CONSTRAINT reviews_pkey' +
-        '    PRIMARY KEY (id)')
-        // '    PRIMARY KEY (id),' +
+        // '    PRIMARY KEY (id))');
+        '    PRIMARY KEY (id),' +
         // 'CONSTRAINT productId' +
-        // '    FOREIGN KEY (productId) REFERENCES public.products(id));').then(r => console.log(r));
-        .then(r => console.log(r));
+        '    FOREIGN KEY (productId) REFERENCES products(id));').then(r => console.log(r));
+// .then(r => console.log(r));*/
 
     return db
 }
