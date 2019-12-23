@@ -53,3 +53,15 @@ body:
         reviewerBoughtProduct text  NULL,
         productId bigint  NOT NULL,
         PRIMARY KEY (id));
+
+
+Instrukcja instalacji bazy:
+- zainstalowac postgresa 12 i pgadmin 4
+- w pg admin dodac uzytkownika (albo edytowac password jezeli juz taki uzytkownik jest) name: postgres password: postgres
+- stworzyc nowa baze o nazwie ceneo, owner postgres
+- w repo z pliku notes.txt skopiowac sql do tworzenia tabel i stworzyc w pgadminie
+- uruchomic skrapera
+
+jezeli bedzie jakis problem z danymi w bazie mozna powyczysczac przed skrapowaniem tabele:
+DELETE FROM reviews;
+DELETE FROM products;
