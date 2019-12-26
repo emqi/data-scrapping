@@ -84,11 +84,12 @@ async function wholeProcess(res, products) {
 
 module.exports = async function (req, res) {
     const phrase = req.query.phrase;
-    const pagesToSearch = req.query.pagesToSearch;
+    let pagesToSearch = req.query.pagesToSearch;
     // const phrase = "telewizor";
     // const pagesToSearch = 1;
 
     if (pagesToSearch === '10') {
+        pagesToSearch = 1;
         let dbConnector = await db.getConnection();
 
 
