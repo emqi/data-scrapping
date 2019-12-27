@@ -1,13 +1,7 @@
 Request example:
 GET
-http://localhost:3000/extractPhrase
-
-body:
-{
-	"phrase": "telewizor",
-	"pagesToSearch": 1
-}
-
+http://localhost:3000/extractPhrase?phrase=telewizor&pagesToSearch=1
+http://localhost:3000/extractPhrase?phrase=telewizor&pagesToSearch=1&mapping=1
 
 
     CREATE TABLE products (
@@ -54,6 +48,20 @@ body:
         productId bigint  NOT NULL,
         PRIMARY KEY (id));
 
+    CREATE TABLE reviews_transform(
+        id bigint  NOT NULL,
+        avatar text  NULL,
+        username text  NULL,
+        rating text  NULL,
+        upvotes text  NULL,
+        downvotes text  NULL,
+        date text  NULL,
+        reviewedAfter text  NULL,
+        content text  NULL,
+        reviewerBoughtProduct text  NULL,
+        productId bigint  NOT NULL,
+        PRIMARY KEY (id));
+
 
 Instrukcja instalacji bazy:
 - zainstalowac postgresa 12 i pgadmin 4
@@ -63,5 +71,9 @@ Instrukcja instalacji bazy:
 - uruchomic skrapera
 
 jezeli bedzie jakis problem z danymi w bazie mozna powyczysczac przed skrapowaniem tabele:
-DELETE FROM reviews;
-DELETE FROM products;
+delete from reviews;
+delete from products;
+delete from products_temp;
+delete from reviews_extract;
+delete from reviews_transform;
+
