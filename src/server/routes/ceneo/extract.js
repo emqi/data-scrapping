@@ -29,7 +29,7 @@ function transform(reviews) {
 }
 
 
-function transformTest(reviews) {
+function transformSingleStep(reviews) {
     let transformedReviews = [];
     reviews.forEach(review => {
         let transformedReview = {
@@ -112,7 +112,7 @@ module.exports = async function (req, res) {
     // const pagesToSearch = 1;
 
     const dbConnector = await db.getConnection();
-    // GET RESULT REVIEWS
+    // GET RESULT REVIEWS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     if (mapping === '11') {
         dbConnector.any("select * from reviews left join products on productId = products.id")
             .then(function (allReviews) {
@@ -124,7 +124,6 @@ module.exports = async function (req, res) {
             )
     }
 
-
     // ETL PROCESS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     if (mapping === '123') {
         const data = await extract(phrase, pagesToSearch);
@@ -132,14 +131,13 @@ module.exports = async function (req, res) {
     }
     // EXTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     if (mapping === '1') {
-        // if (mapping === 'EXTRACT') {
-        let TODO_RENAME = 0;
+        dbConnector.none('DELETE FROM products;')
+            .then(() => console.log('DELETE FROM products;'))
+            .catch(() => console.log("Error while deleting from products"));
 
         const products = await extract(phrase, pagesToSearch);
         // const products = getTestProductWithOpinions();
-        let count = 0;
-        let reviewsCount = data.forEach(product => count += product.reviews.length);
-        console.log("number of reviews: " + reviewsCount);
+
         products.forEach(product => {
             dbConnector.none('INSERT INTO products(id, name, description, rating, price) ' +
                 'VALUES(${id}, ${name}, ${description}, ${rating}, ${price})', {
@@ -149,10 +147,10 @@ module.exports = async function (req, res) {
                 rating: product.rating,
                 price: product.price
             }).catch(function () {
-                return res.json("Error");
+                console.log("Error while inserting into products");
+                // return res.json("Error");
             });
 
-            TODO_RENAME += product.reviews.length;
             product.reviews.forEach(review => {
                 dbConnector.none('INSERT INTO reviews_extract(id, avatar, username, rating, upvotes, downvotes, date, reviewedAfter, content, reviewerBoughtProduct, productId) ' +
                     'VALUES(${id}, ${avatar}, ${username}, ${rating}, ${upvotes}, ${downvotes}, ${date}, ${reviewedAfter}, ${content}, ${reviewerBoughtProduct}, ${productId})', {
@@ -167,20 +165,23 @@ module.exports = async function (req, res) {
                     content: review.text,
                     reviewerBoughtProduct: review.didUserBuyTheProduct,
                     productId: product.id
-                }).catch(function () {
-                    return res.json("Error");
+                }).catch(function (error) {
+                    console.log("Error while inserting into reviews_extract");
+                    // return res.json("Error");
                 });
             });
         });
-        return res.json(TODO_RENAME);
-    }
 
+        dbConnector.one("SELECT COUNT(*) FROM reviews_extract")
+            .then(result => {
+                return res.json(result.count);
+            });
+    }
     // TRANSFORM %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     else if (mapping === '2') {
-        // else if (mapping === 'TRANSFORM') {
         dbConnector.any("SELECT * FROM reviews_extract")
             .then(function (reviews) {
-                const transformedReviews = transformTest(reviews);
+                const transformedReviews = transformSingleStep(reviews);
                 transformedReviews.forEach(review => {
                     dbConnector.none('INSERT INTO reviews_transform(id, avatar, username, rating, upvotes, downvotes, date, reviewedAfter, content, reviewerBoughtProduct, productId) ' +
                         'VALUES(${id}, ${avatar}, ${username}, ${rating}, ${upvotes}, ${downvotes}, ${date}, ${reviewedAfter}, ${content}, ${reviewerBoughtProduct}, ${productId})', {
@@ -196,20 +197,21 @@ module.exports = async function (req, res) {
                         reviewerBoughtProduct: review.reviewerBoughtProduct,
                         productId: review.productId
                     }).catch(function () {
-                        return res.json("Error");
+                        console.log("Error while inserting into reviews_transform");
+                        // return res.json("Error");
                     });
                 });
 
                 dbConnector.none('DELETE FROM reviews_extract')
-                    .then(() => console.log('DELETE FROM reviews_extract'));
+                    .then(() => console.log('DELETE FROM reviews_extract'))
+                    .catch(() => console.log("Error while deleting from reviews_extract"));
                 return res.json(reviews.length);
             });
-    } else if (mapping === '3') {
-        // } else if (mapping === 'LOAD') {
-
+        // LOAD %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    } else if (mapping === '3') { // LOAD
         dbConnector.any("SELECT * FROM reviews_transform")
             .then(function (transformedReviews) {
-                // TODO: jezeli mozna wykonac load wiele razy to trzeba filtrowac reviews zeby nie duplikowac
+                // TODO: prevent from duplicated reviews (similar like in whole process)
                 transformedReviews.forEach(review => {
                     dbConnector.none('INSERT INTO reviews(id, reviewerUsername, rating, upvotes, downvotes, date, reviewedAfter, content, reviewerBoughtProduct, productId) ' +
                         'VALUES(${id}, ${reviewerUsername}, ${rating}, ${upvotes}, ${downvotes}, ${date}, ${reviewedAfter}, ${content}, ${reviewerBoughtProduct}, ${productId})', {
@@ -226,7 +228,8 @@ module.exports = async function (req, res) {
                     });
                 });
                 dbConnector.none('DELETE FROM reviews_transform')
-                    .then(() => console.log('DELETE FROM reviews_transform'));
+                    .then(() => console.log('DELETE FROM reviews_transform'))
+                    .catch(() => console.log("Error while deleting from reviews_transform"));
                 return res.json(transformedReviews.length);
             })
             .catch(function () {
