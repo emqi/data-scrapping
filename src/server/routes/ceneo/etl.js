@@ -6,9 +6,9 @@ module.exports = async function (req, res) {
     const pagesToSearch = req.query.pagesToSearch;
 
 
-const data = await extract(phrase, pagesToSearch);
-        await wholeProcess(res, data);
-}        
+    const data = await extract(phrase, pagesToSearch);
+    await wholeProcess(res, data);
+};
 
 
 async function wholeProcess(res, products) {
@@ -86,28 +86,6 @@ function transform(reviews) {
             reviewedAfter: review.reviewedAfter,
             text: review.text,
             didUserBuyTheProduct: review.didUserBuyTheProduct
-        };
-        transformedReviews.push(transformedReview);
-    });
-    return transformedReviews;
-}
-
-
-function transformSingleStep(reviews) {
-    let transformedReviews = [];
-    reviews.forEach(review => {
-        let transformedReview = {
-            id: review.id,
-            avatar: review.avatar,
-            username: review.username.trim(),
-            rating: transformRating(review.rating),
-            upvotes: review.upvotes,
-            downvotes: review.downvotes,
-            date: review.date,
-            reviewedAfter: review.reviewedafter,
-            content: review.content,
-            reviewerBoughtProduct: review.reviewerboughtproduct,
-            productId: review.productid
         };
         transformedReviews.push(transformedReview);
     });

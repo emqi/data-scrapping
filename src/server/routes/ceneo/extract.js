@@ -5,28 +5,29 @@ module.exports = async function (req, res) {
     const phrase = req.query.phrase;
     const pagesToSearch = req.query.pagesToSearch;
     const dbConnector = await db.getConnection();
-   
-    const data = await staticData(dbConnector, phrase, pagesToSearch)
+
+    const data = await staticData(dbConnector, phrase, pagesToSearch);
     return res.json(data);
-}
+};
 
 async function staticData(dbConnector, phrase, pagesToSearch) {
-  const done = await addToDb(dbConnector, phrase, pagesToSearch);
-    if(done){
-   return dbConnector.one("SELECT COUNT(*) FROM reviews_extract")
-     .then(result => {
-         console.log(result)
-         return result.count;
-     });}
+    const done = await addToDb(dbConnector, phrase, pagesToSearch);
+    if (done) {
+        return dbConnector.one("SELECT COUNT(*) FROM reviews_extract")
+            .then(result => {
+                console.log(result)
+                return result.count;
+            });
+    }
 }
 
 async function deleteDb(dbConnector) {
     dbConnector.none('DELETE FROM products;')
-   .then(() => {
-       console.log("usuniecie bazy")
-       }
-       )
-   .catch(() => console.log("Error while deleting from products"));
+        .then(() => {
+                console.log("usuniecie bazy")
+            }
+        )
+        .catch(() => console.log("Error while deleting from products"));
 }
 
 async function addToDb(dbConnector, phrase, pagesToSearch) {
@@ -66,7 +67,6 @@ async function addToDb(dbConnector, phrase, pagesToSearch) {
                 // return res.json("Error");
             });
         });
-    
-    })
+    });
     return true;
 }

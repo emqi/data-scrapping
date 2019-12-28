@@ -1,37 +1,36 @@
 const db = require("../../../database/database");
 
 
-
 module.exports = async function (req, res) {
-const dbConnector = await db.getConnection();
-dbConnector.any("SELECT * FROM reviews_extract")
-.then(function (reviews) {
-    const transformedReviews = transformSingleStep(reviews);
-    transformedReviews.forEach(review => {
-        dbConnector.none('INSERT INTO reviews_transform(id, avatar, username, rating, upvotes, downvotes, date, reviewedAfter, content, reviewerBoughtProduct, productId) ' +
-            'VALUES(${id}, ${avatar}, ${username}, ${rating}, ${upvotes}, ${downvotes}, ${date}, ${reviewedAfter}, ${content}, ${reviewerBoughtProduct}, ${productId})', {
-            id: review.id,
-            avatar: review.avatar,
-            username: review.username,
-            rating: review.rating,
-            upvotes: review.upvotes,
-            downvotes: review.downvotes,
-            date: review.date,
-            reviewedAfter: review.reviewedAfter,
-            content: review.content,
-            reviewerBoughtProduct: review.reviewerBoughtProduct,
-            productId: review.productId
-        }).catch(function () {
-            console.log("Error while inserting into reviews_transform");
-            // return res.json("Error");
-        });
-    });
+    const dbConnector = await db.getConnection();
+    dbConnector.any("SELECT * FROM reviews_extract")
+        .then(function (reviews) {
+            const transformedReviews = transformSingleStep(reviews);
+            transformedReviews.forEach(review => {
+                dbConnector.none('INSERT INTO reviews_transform(id, avatar, username, rating, upvotes, downvotes, date, reviewedAfter, content, reviewerBoughtProduct, productId) ' +
+                    'VALUES(${id}, ${avatar}, ${username}, ${rating}, ${upvotes}, ${downvotes}, ${date}, ${reviewedAfter}, ${content}, ${reviewerBoughtProduct}, ${productId})', {
+                    id: review.id,
+                    avatar: review.avatar,
+                    username: review.username,
+                    rating: review.rating,
+                    upvotes: review.upvotes,
+                    downvotes: review.downvotes,
+                    date: review.date,
+                    reviewedAfter: review.reviewedAfter,
+                    content: review.content,
+                    reviewerBoughtProduct: review.reviewerBoughtProduct,
+                    productId: review.productId
+                }).catch(function () {
+                    console.log("Error while inserting into reviews_transform");
+                    // return res.json("Error");
+                });
+            });
 
-    dbConnector.none('DELETE FROM reviews_extract')
-        .then(() => console.log('DELETE FROM reviews_extract'))
-        .catch(() => console.log("Error while deleting from reviews_extract"));
-    return res.json(reviews.length);
-});
+            dbConnector.none('DELETE FROM reviews_extract')
+                .then(() => console.log('DELETE FROM reviews_extract'))
+                .catch(() => console.log("Error while deleting from reviews_extract"));
+            return res.json(reviews.length);
+        });
 
 }
 
@@ -62,22 +61,4 @@ function transformRating(rating) {
             .replace(",", ".")
             .replace("/5", ""));
     return Number.isNaN(parsedRating) ? null : parsedRating;
-}
-
-function transform(reviews) {
-    let transformedReviews = [];
-    reviews.forEach(review => {
-        let transformedReview = {
-            reviewId: review.reviewId,
-            reviewer: {avatar: review.reviewer.avatar, username: review.reviewer.username.trim()},
-            rating: transformRating(review.rating),
-            usefulness: {upvotes: review.usefulness.upvotes, downvotes: review.usefulness.downvotes},
-            date: review.date,
-            reviewedAfter: review.reviewedAfter,
-            text: review.text,
-            didUserBuyTheProduct: review.didUserBuyTheProduct
-        };
-        transformedReviews.push(transformedReview);
-    });
-    return transformedReviews;
 }
