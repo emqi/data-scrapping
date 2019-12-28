@@ -27,8 +27,7 @@ module.exports = async function (req, res) {
             return res.json(transformedReviews.length);
         })
         .catch(function () {
-                console.log("Error");
-                // return res.json("Error");
+                console.log("Error while selecting from reviews_transform");
             }
         );
 };

@@ -6,36 +6,36 @@ module.exports = async function (req, res) {
     const pagesToSearch = req.query.pagesToSearch;
     const dbConnector = await db.getConnection();
 
-    const data = await staticData(dbConnector, phrase, pagesToSearch);
-    return res.json(data);
+    const rowsAffected = await extractedReviewsCount(dbConnector, phrase, pagesToSearch);
+    return res.json(rowsAffected);
 };
 
-async function staticData(dbConnector, phrase, pagesToSearch) {
-    const done = await addToDb(dbConnector, phrase, pagesToSearch);
+async function extractedReviewsCount(dbConnector, phrase, pagesToSearch) {
+    const done = await extractStep(dbConnector, phrase, pagesToSearch);
     if (done) {
         return dbConnector.one("SELECT COUNT(*) FROM reviews_extract")
             .then(result => {
-                console.log(result)
+                console.log(result);
                 return result.count;
             });
     }
 }
 
-async function deleteDb(dbConnector) {
+async function clearTables(dbConnector) {
     dbConnector.none('DELETE FROM products;')
-        .then(() => {
-                console.log("usuniecie bazy")
-            }
-        )
-        .catch(() => console.log("Error while deleting from products"));
+        .then(() => console.log("Delete products"))
+        .catch(() => console.log("Error while deleting from table products"));
+    dbConnector.none('DELETE FROM reviews_extract;')
+        .then(() => console.log("Delete reviews_extract"))
+        .catch(() => console.log("Error while deleting from table reviews_extract"));
 }
 
-async function addToDb(dbConnector, phrase, pagesToSearch) {
-    await deleteDb(dbConnector);
-    const products = await extract(phrase, pagesToSearch);
-    // const products = getTestProductWithOpinions();
+async function extractStep(dbConnector, phrase, pagesToSearch) {
+    await clearTables(dbConnector);
+    const scrappedProducts = await extract(phrase, pagesToSearch);
+    // const scrappedProducts = getTestProductWithOpinions();
 
-    products.forEach(product => {
+    scrappedProducts.forEach(product => {
         dbConnector.none('INSERT INTO products(id, name, description, rating, price) ' +
             'VALUES(${id}, ${name}, ${description}, ${rating}, ${price})', {
             id: product.id,
@@ -45,7 +45,6 @@ async function addToDb(dbConnector, phrase, pagesToSearch) {
             price: product.price
         }).catch(function () {
             console.log("Error while inserting into products");
-            // return res.json("Error");
         });
 
         product.reviews.forEach(review => {
@@ -62,9 +61,8 @@ async function addToDb(dbConnector, phrase, pagesToSearch) {
                 content: review.text,
                 reviewerBoughtProduct: review.didUserBuyTheProduct,
                 productId: product.id
-            }).catch(function (error) {
-                console.log(error);
-                // return res.json("Error");
+            }).catch(function () {
+                console.log("Error while inserting into reviews_extract");
             });
         });
     });

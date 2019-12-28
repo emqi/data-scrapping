@@ -29,6 +29,8 @@ function setupDatabaseConnection() {
     db.none('DELETE FROM reviews').then(r => console.log(r));
     db.none('DELETE FROM products').then(r => console.log(r));
     db.none('DELETE FROM products_temp').then(r => console.log(r));
+    db.none('DELETE FROM reviews_extract').then(r => console.log(r));
+    db.none('DELETE FROM reviews_transform').then(r => console.log(r));
 
 /*    db.none('CREATE TABLE IF NOT EXISTS products (' +
         '    id bigint  NOT NULL,' +

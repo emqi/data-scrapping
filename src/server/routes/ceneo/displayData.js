@@ -7,6 +7,7 @@ module.exports = async function (req, res) {
             return res.json(allReviews);
         })
         .catch(function () {
+                console.log("Error while selecting from reviews");
                 return res.json("Error");
             }
         )

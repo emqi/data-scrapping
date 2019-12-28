@@ -65,7 +65,6 @@ async function wholeProcess(res, products) {
     return res.json(numberOfRecords);
 }
 
-
 function transformRating(rating) {
     let parsedRating = parseFloat(
         rating

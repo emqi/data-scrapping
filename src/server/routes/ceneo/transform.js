@@ -1,6 +1,5 @@
 const db = require("../../../database/database");
 
-
 module.exports = async function (req, res) {
     const dbConnector = await db.getConnection();
     dbConnector.any("SELECT * FROM reviews_extract")
@@ -22,7 +21,6 @@ module.exports = async function (req, res) {
                     productId: review.productId
                 }).catch(function () {
                     console.log("Error while inserting into reviews_transform");
-                    // return res.json("Error");
                 });
             });
 
@@ -30,9 +28,12 @@ module.exports = async function (req, res) {
                 .then(() => console.log('DELETE FROM reviews_extract'))
                 .catch(() => console.log("Error while deleting from reviews_extract"));
             return res.json(reviews.length);
-        });
-
-}
+        })
+        .catch(function () {
+                console.log("Error while selecting from reviews_extract");
+            }
+        );
+};
 
 function transformSingleStep(reviews) {
     let transformedReviews = [];
